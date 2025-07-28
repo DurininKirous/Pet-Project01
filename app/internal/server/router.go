@@ -8,14 +8,16 @@ import (
 	"project01/app/internal/server/healthcheck"
 	"project01/app/internal/server/users"
 	db "project01/app/internal/db/users"
+	"go.uber.org/zap"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-func NewRouter(repo *db.Repo) http.Handler {
+func NewRouter(repo *db.Repo, logger *zap.Logger) http.Handler {
 	r := chi.NewRouter()
 
-	r.Mount("/ping", healthcheckRouter.NewRouter())
-    r.Mount("/users", usersRouter.NewRouter(repo))
-	//r.Mount("/logs", logsHandler.NewRouter())
+	r.Mount("/ping", healthcheckRouter.NewRouter(logger))
+    r.Mount("/users", usersRouter.NewRouter(repo, logger))
+	r.Mount("/metrics", promhttp.Handler())
 
 	return r
 }

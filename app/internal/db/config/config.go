@@ -34,7 +34,7 @@ func Load() *Config {
 		Env: getEnv("ENV", "DEV"),
 		Port: getEnv("APP_PORT", "8080"),
 		DB: DBConfig {
-			Host: getEnv("DB_HOST", "localhost"),
+			Host: getEnv("DB_HOST", "db"),
 			Port: dbPort,
 			User: getEnv("DB_USER", "postgres"),
 			Pass: getEnv("DB_PASSWORD", "pass"),

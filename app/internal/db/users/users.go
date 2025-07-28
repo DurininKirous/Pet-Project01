@@ -4,14 +4,16 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"context"
 	"time"
+	"go.uber.org/zap"
 )
 
 type Repo struct {
 	db *pgxpool.Pool
+	logger *zap.Logger
 }
 
-func New(pool *pgxpool.Pool) *Repo {
-    return &Repo{db: pool}
+func New(pool *pgxpool.Pool, logger *zap.Logger) *Repo {
+	return &Repo{db: pool, logger: logger}
 }
 
 type User struct {
@@ -24,9 +26,9 @@ type User struct {
 
 func (r *Repo) FindAll(ctx context.Context) ([]User, error) {
 	query := `SELECT id, firstname, lastname, email, created_at FROM users`
-	
 	rows, err := r.db.Query(ctx, query)
 	if err != nil {
+		r.logger.Error("Error getting users from table users", zap.Error(err))
 		return nil, err
 	}
 	defer rows.Close()
@@ -35,6 +37,7 @@ func (r *Repo) FindAll(ctx context.Context) ([]User, error) {
 	for rows.Next() {
 		var u User
 		if err := rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Email, &u.CreatedAt); err != nil {
+			r.logger.Error("Error scanning rows in user's data", zap.Error(err))
 			return nil, err
 		}
 		users = append(users, u)
@@ -50,6 +53,7 @@ func (r *Repo) FindByID(ctx context.Context, id int) (*User, error) {
 	var user User
 	err := row.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.CreatedAt)
 	if err != nil {
+		r.logger.Info("Error scanning rows in user's data", zap.Error(err))
 		return nil, err
 	}
 

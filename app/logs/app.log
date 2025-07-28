@@ -1,0 +1,78 @@
+
+2025-07-28T00:10:04.293+0300	[34mINFO[0m	app/main.go:19	Logger initialized successfully
+2025-07-28T00:10:04.301+0300	[34mINFO[0m	app/main.go:32	Starting HTTP server	{"addr": ":8080"}
+2025-07-28T00:22:58.734+0300	[34mINFO[0m	app/main.go:19	Logger initialized successfully
+2025-07-28T00:22:58.741+0300	[34mINFO[0m	app/main.go:32	Starting HTTP server	{"addr": ":8080"}
+2025-07-28T00:23:06.930+0300	[34mINFO[0m	users/users.go:37	Got users from table users
+2025-07-28T00:23:10.168+0300	[34mINFO[0m	users/users.go:52	Got user from table users
+2025-07-28T00:24:50.471+0300	[34mINFO[0m	app/main.go:19	Logger initialized successfully
+2025-07-28T00:24:50.478+0300	[34mINFO[0m	app/main.go:32	Starting HTTP server	{"addr": ":8080"}
+2025-07-28T00:24:53.955+0300	[34mINFO[0m	users/users.go:52	Got user from table users	{"id": "user.ID"}
+2025-07-28T00:26:08.322+0300	[34mINFO[0m	app/main.go:19	Logger initialized successfully
+2025-07-28T00:26:08.329+0300	[34mINFO[0m	app/main.go:32	Starting HTTP server	{"addr": ":8080"}
+2025-07-28T00:26:10.475+0300	[34mINFO[0m	users/users.go:53	Got user from table users	{"id": "1"}
+2025-07-28T00:26:27.507+0300	[34mINFO[0m	users/users.go:38	Got users from table users
+2025-07-28T00:27:03.400+0300	[34mINFO[0m	users/users.go:74	Inserted user into table users
+2025-07-28T00:27:58.507+0300	[34mINFO[0m	app/main.go:19	Logger initialized successfully
+2025-07-28T00:27:58.514+0300	[34mINFO[0m	app/main.go:32	Starting HTTP server	{"addr": ":8080"}
+2025-07-28T00:28:19.061+0300	[34mINFO[0m	users/users.go:74	Inserted user into table users	{"id": "3"}
+2025-07-28T00:28:37.709+0300	[34mINFO[0m	users/users.go:38	Got users from table users
+2025-07-28T00:28:41.234+0300	[34mINFO[0m	users/users.go:38	Got users from table users
+2025-07-28T00:28:44.497+0300	[34mINFO[0m	users/users.go:53	Got user from table users	{"id": "2"}
+2025-07-28T00:28:45.945+0300	[34mINFO[0m	users/users.go:53	Got user from table users	{"id": "3"}
+2025-07-28T00:28:57.369+0300	[31mERROR[0m	users/users.go:56	Error scanning rows in user's data	{"error": "no rows in result set"}
+project01/app/internal/db/users.(*Repo).FindByID
+	/home/durininkirous/Pet-Project/app/internal/db/users/users.go:56
+project01/app/internal/service/users.(*Service).GetById
+	/home/durininkirous/Pet-Project/app/internal/service/users/users.go:44
+project01/app/internal/handlers/users.(*Handler).GetByID
+	/home/durininkirous/Pet-Project/app/internal/handlers/users/users.go:39
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:478
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:325
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:478
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:90
+net/http.serverHandler.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:3210
+net/http.(*conn).serve
+	/usr/lib/golang/src/net/http/server.go:2092
+2025-07-28T00:28:57.369+0300	[31mERROR[0m	users/users.go:47	Error getting users from table users: user not found	{"error": "no rows in result set"}
+project01/app/internal/service/users.(*Service).GetById
+	/home/durininkirous/Pet-Project/app/internal/service/users/users.go:47
+project01/app/internal/handlers/users.(*Handler).GetByID
+	/home/durininkirous/Pet-Project/app/internal/handlers/users/users.go:39
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:478
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:325
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:478
+net/http.HandlerFunc.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:2220
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	/home/durininkirous/go/pkg/mod/github.com/go-chi/chi/v5@v5.2.2/mux.go:90
+net/http.serverHandler.ServeHTTP
+	/usr/lib/golang/src/net/http/server.go:3210
+net/http.(*conn).serve
+	/usr/lib/golang/src/net/http/server.go:2092

@@ -14,7 +14,7 @@ type Handler struct {
 }
 
 func New(service *users.Service) *Handler {
-    return &Handler{service: service}
+	return &Handler{service: service}
 }
 
 func (h *Handler) GetAll(w http.ResponseWriter, r *http.Request) {
